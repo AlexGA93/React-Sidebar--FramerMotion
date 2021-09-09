@@ -1,6 +1,7 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import {motion} from 'framer-motion';
-import {Icon} from 'semantic-ui-react';
+import {Icon, Divider} from 'semantic-ui-react';
 import './MenuItem.scss';
 
 const variants = {
@@ -20,23 +21,32 @@ const variants = {
     }
 };
 const colors = ["#FF008C", "#D309E1", "#9C1AFF", "#7700FF", "#4400FF"];
-
+const icons = ["shield","plus","edit","eraser","power off"];
+const labels = ["View Services","Add Service","Edit Service","Delete Service","Log out"];
+const routes = ["/view","/add","/edit","/delete","/logout"]
 export default function MenuItem(props) {
     const {i} = props;
-    const style = { border: `2px solid ${colors[i]}` };
+    // const style = { border: `2px solid ${colors[i]}` };
+    const style = { border: '2px solid black ' };
     return (
-        <motion.li
-        className="motionList"
-        variants={variants}
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.95 }}
-        >
+        <>
+          <motion.li
+          className="motionList"
+          variants={variants}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
+          > 
             
-            <div className="motionList__icon-placeholder" style={style} >
-              <Icon className="motionList__icon-placeholder__menu-icon" name="shield alternate" size="small"/>
-            </div>
-            <div className="motionList__text-placeholder" style={style}>Test</div> 
-            
-        </motion.li>
+            <Icon className="motionList__icon-placeholder"name={`${icons[i]}`} size="big" />
+            {/* <div  className="motionList__icon-placeholder" style={style} >
+              
+            </div> */}
+            <div className="motionList__text-placeholder" style={style}>
+              <Link to={routes[i]}>{labels[i]}</Link>
+            </div> 
+              
+          </motion.li>
+          <Divider horizontal className="motionList-divider"/>
+        </>
     );
 }

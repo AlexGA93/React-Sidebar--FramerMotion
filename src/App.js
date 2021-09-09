@@ -1,11 +1,15 @@
 import React from 'react';
+import {BrowserRouter as Router} from 'react-router-dom';
+import Routes from './routes/Routes';
+
 import './App.scss';
 
 import Sidebar from './components/Sidebar/Sidebar';
 export default function App() {
   return (
-    <div className="App">
+    <Router className="App">
       <Sidebar />
-    </div>
+      <Routes />
+    </Router>
   );
 }

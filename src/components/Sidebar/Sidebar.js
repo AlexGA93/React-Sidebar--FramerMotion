@@ -5,7 +5,7 @@ useDimensions -> measure any element in our DOM
 useCycle -> we wanto to cycle throught different values like open or closed
 */
 
-import React, {useState,useRef} from 'react';
+import React, {useRef} from 'react';
 import useDimensions from 'react-use-dimensions';
 import {motion, useCycle} from 'framer-motion';
 
